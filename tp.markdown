@@ -1,0 +1,270 @@
+%Atelier de programmation en python
+%Kévin "Chewie" Sztern et Christophe "Sagane" Vermorel
+
+\newpage
+
+Introduction
+============
+
+L’objectif de ce Workshop est de vous montrer quelques bases de
+programmation dans un langage très simple pour débuter : le Python.\
+
+Vous êtes encadrés par plusieurs étudiants d’Épita, en première année du
+cycle d’ingénieur. N’hésitez pas à nous poser des questions !\
+
+Le but de ce Workshop est de vous faire dessiner des formes géométriques
+à l’aide du langage de programmation **python**[^1] et de son module
+**turtle**[^2], un ensemble d’outils destinés aux débutants souhaitant
+découvrir la programmation. Vous trouverez en annexe des exemples de ce
+que vous serez capable de réaliser avec ce module et les connaissances
+acquises au cours de ce Workshop.
+
+L’environnement de développement
+================================
+
+Dans un premier temps, nous verrons l’environnement qui sera utilisé
+pour réaliser ce Workshop.\
+Un environnement de développement est généralement composé de trois
+outils :
+
+-   Un éditeur : l’espace éditable où vous taperez votre code;
+
+-   Un compilateur : un logiciel qui transformera le code que vous aurez
+    tapé de telle sortes à ce qu’il soit réellement compréhensible par
+    l’ordinateur. Pour certains langages, ce compilateur est remplacé
+    par un interpréteur (la différence n’a pas d’importance ici).
+
+-   Un debugger : un outil nous permettant d’analyser notre programme
+    afin de corriger les erreurs qui s’y sont glissées.
+
+Vous avez de la chance, il existe des logiciel qui combinent *éditeur*
+et *compilateur*/*interpréteur*. On les appelle : IDE (Integrated
+Development Environnement - Environnement de développement intégré).\
+
+Nous utiliserons un IDE dédié à la programmation en Python : PyScripter
+
+Démarrer l’IDE
+--------------
+
+PyScripter se lance très simplement en double cliquant sur l’icône
+associée se trouvant quelque part sur votre bureau. Si tout se passe
+bien, vous devriez voir un écran similaire à celui-ci :\
+
+![image](img/capture)
+
+Vous l’aurez compris, l’IDE n’affiche que le strict minimum nécessaire
+pour ce Workshop. Notez que deux lignes de code sont déjà présentes :
+
+-   **\# Code here** est un commentaire, il sera ignoré par
+    l’interpréteur.
+
+-   **from program import \*** permet d’importer l’ensemble des
+    fonctionnalités que nous avons déjà programmées pour vous. Vous ne
+    devez pas supprimer cette ligne : si vous le faites, plus rien ne
+    fonctionnera.
+
+Au niveau de l’interface de l’IDE, vous utiliserez principalement (de
+haut en bas) :
+
+-   le bouton d’exécution : presser ce bouton exécutera aussi votre
+    code;
+
+-   l’espace d’édition;
+
+-   une console (onglet *Sortie* en bas d’écran) : c’est ici que
+    s’afficheront les messages d’erreur si votre code n’est pas correct.
+
+Si vous essayez d’exécuter le programme (en appuyant sur le bouton),
+vous remarquerez qu’une fenêtre s’ouvre, et se ferme juste après. Votre
+objectif sera de dessiner dans cette fenêtre !\
+
+Vous devrez programmer uniquement dans le fichier `my_code.py`, il sera
+automatiquement lu et exécuté par notre propre code.
+
+Premiers pas
+============
+
+Pour l’instant, voyons ce qu’il est possible de faire avec quelques
+lignes de code. Pour bien comprendre ce qu’il se passe : recopiez dans
+votre fichier `my_code.py` ce qui est donné ici, changez les nombres, et
+voyez quelle œuvre d’art vous êtes en train de créer !
+
+Quelques primitives pour débuter
+--------------------------------
+
+c c
+
+&\
+\
+ &\
+
+Éviter d’écrire les mêmes instructions : les procédures
+-------------------------------------------------------
+
+Souvent, une forme géométrique est composée de plusieurs formes simples
+à divers endroits. En fait, nous avons la possibilité d’indiquer à
+l’ordinateur la procédure à suivre pour dessiner une forme bien précise.
+Cette procédure pourra ensuite être mise en œuvre afin de dessiner la
+forme à plusieurs endroits.\
+En programmation, nous parlons aussi de *procédure*.\
+En réalité, vous aviez déjà rencontré cette bestiole : ce sont toutes
+les lignes que vous tapez et finissez par des parenthèses. En effet,
+`avancer()`, `tourner_droite()`, etc. sont toutes des procédures cachant
+un code compliqué que vous appelez plusieurs fois.\
+\
+Le schéma général de déclaration de procédure est le suivant :
+
+        def nom_de_ma_super_procedure() :   # on nomme la procedure
+            instruction 1                   # tabulation obligatoire
+            instruction 2
+        
+
+Prenez garde à la tabulation avant chaque instruction : cela permet au
+compilateur/interpréteur de savoir que les instructions appartiennent
+bien à la fonction[^3].\
+\
+Une fois définie, vous appelez votre procédure tout simplement comme
+suit :
+
+        nom_de_ma_super_procedure ()
+        
+
+*Appeler* une procédure revient à exécuter le code qu’elle contient.\
+Voici quelques procédures que vous pouvez tester pour mieux comprendre
+:\
+\
+
+c c
+
+&\
+\
+ &\
+
+Créez vos propre procédures !
+-----------------------------
+
+Il est maintenant temps de créer vos propres procédure. Créez des
+procédure pour dessiner :
+
+-   une étoile;
+
+-   un losange;
+
+-   l’approximation d’un cercle (un cercle peut être approximé par une
+    série de segments parcourant son bord). Vous pourrez utiliser les
+    procédures `math.cos(angle)` et `math.sin(angle)`.\
+
+[htb!] ![image](img/approx_circle)\
+
+Répéter plusieurs fois les mêmes opérations : les boucles
+=========================================================
+
+En général, on parviendra à dessiner une forme complexe avec un certain
+nombre de formes simples.[^4]\
+
+En fait, jusqu’à présent, vous arrivez déjà à dessiner une forme qui se
+répète : la ligne.\
+
+Si vous observez bien, pour dessiner un carré, vous exécutez quatre fois
+les mêmes instructions :
+
+    # on dessine un bord
+    avancer (100)
+    # on tourne de 90 deg : la direction du second bord
+    tourner_droite (90)
+    avancer (100)
+    tourner_droite (90)
+    avancer (100)
+    tourner_droite (90)
+    avancer (100)
+    tourner_droite (90)
+    # les quatre bords apparaissent
+
+Pour faire plus court, il serait intéressant de pouvoir dire à
+l’ordinateur :
+
+    faire 4 fois :
+        avancer de 100 points
+        tourner de 90 deg
+
+Il s’avère que cela est possible en Python. C’est un concept que l’on
+appelle **boucle**.\
+
+Dans le cas du carré, on obtient en Python[^5]
+
+    for i in range (4) :  # faire 4 fois
+      avancer (100)       # avancer de 100 points
+      tourner_droite (90) # tourner de 90deg
+
+Maintenant réécrivez toutes les formes que vous avez déjà programmées,
+mais en utilisant les boucles :
+
+-   Le triangle : en 3 lignes de code;
+
+-   Le losange : en 3 ligne de codes;
+
+-   L’approximation de cercle : en 3 ligne de codes.
+
+Quelques objectifs simples
+==========================
+
+Cette fois ci, vous n’êtes plus guidés ! Montrez que vous êtes créatifs
+en réussissant à dessiner les formes suivantes. N’hésitez pas à appeler
+à l’aide !\
+
+[htb!] ![image](img/approx_circle_hexagon) ![image](img/star)
+
+Quelques objectifs impossibles
+==============================
+
+Les dessins suivants sont bien plus difficiles à réaliser que les autres
+! Certains nécessitent même des notions bien plus complexes que celles
+vues dans ce Workshop : saut conditionnel, récursion, passage de
+paramètre aux procédures, etc.[^6]\
+
+Nous mettons à votre disposition d’autres procédures pour permettre à
+votre créativité de mieux s’exprimer :
+
+-   `lever_crayon()` : les prochains déplacement n’afficheront rien;
+
+-   `poser_crayon()` : a l’effet inverse du lever de crayon;
+
+-   `changer_taille(taille)` : change la taille des prochains traits
+    dessinés;
+
+-   `changer_couleur((rouge, vert, bleu))` : change la couleur des
+    prochains traits dessinés. Notez que les couleurs sont composées de
+    trois composantes : vert, rouge et bleu. Chacune peut avoir une
+    valeur allant de 0 (absence de le composante) à 255. Par exemple, du
+    rouge pur correspond à la combinaisons {rouge = 255, vert = 0, bleu
+    = 0}.
+
+Essayez d’obtenir le bon résultat, et appelez un assistant dès que vous
+bloquez !\
+
+[htb!] ![image](img/sierpinski.png)\
+
+[htb!] ![image](img/spiral_square.png)
+
+[^1]: http://python.org/
+
+[^2]: http://docs.python.org/2/library/turtle.html
+
+[^3]: Certains langages ont un approche différente : le C, C++, Java, et
+    C\# par exemple utilisent des accolades pour délimiter le corps des
+    fonctions. Les langages tels que Python ou encore le Haskell
+    délimitent les corps de fonctions par rapport à l’indentation, ce
+    qui rend le code *naturellement* lisible
+
+[^4]: En fait, ils est démontrable que tout polygone fermé peut être
+    décomposé en un nombre finit de triangles. De même, toute forme
+    bidimensionnelle fermée peut être décomposée en un nombre infini de
+    triangles (potentiellement dégénérés). Le cas le la forme vide est à
+    exclure.
+
+[^5]: Remarquez l’usage de la procédure *range(nombre)*. Elle génèrera
+    une suite de nombre allant de 0 à *nombre* - 1.
+
+[^6]: Toutes ces notions font aussi partie de la base de la
+    programmation, si bien que vous les maitriserez dès votre première
+    semaine de cours à l’Épita.
