@@ -1,6 +1,6 @@
 import turtle
+import colorsys
 
-turtle.colormode(255)
 # left = True
 # right = False
 def dragon_path(iteration):
@@ -14,17 +14,17 @@ def dragon_path(iteration):
 
 def gogo_turtle(path):
     turtle.speed(0) # super turtle mode
+    turtle.hideturtle()
+    i = 0
     #turtle.shape("turtle") # I'm a turtle
-    color = 1
-    for turn_left in path:
+    for i, turn_left in enumerate(path):
+        turtle.pencolor(colorsys.hls_to_rgb(float(i) / float(len(path)), .5, .5))
         turtle.forward(1)
         if turn_left:
             turtle.left(90)
         else:
             turtle.right(90)
-        turtle.pencolor(color & 0xFF,
-                        (color >> 8) & 0xFF,
-                        (color >> 16) & 0xFF)
-        color = color + 1
 
-gogo_turtle(dragon_path(20))
+gogo_turtle(dragon_path(15))
+import time
+time.sleep(10000)
