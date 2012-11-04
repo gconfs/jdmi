@@ -55,13 +55,11 @@ bien, vous devriez voir un écran similaire à celui-ci :\
 Vous l’aurez compris, l’IDE n’affiche que le strict minimum nécessaire
 pour ce Workshop. Notez que deux lignes de code sont déjà présentes :
 
--   **\# Code here** est un commentaire, il sera ignoré par
-    l’interpréteur.
+-   **\# insérez votre code ici** est un commentaire, il sera ignoré par
+    l’interpréteur, comme toutes les lignes commençant par **\#**.
 
--   **from program import \*** permet d’importer l’ensemble des
-    fonctionnalités que nous avons déjà programmées pour vous. Vous ne
-    devez pas supprimer cette ligne : si vous le faites, plus rien ne
-    fonctionnera.
+-   **import turle** permet d’importer l’ensemble des fonctionnalités
+    présentes dqns la bubliothèque turtle.
 
 Au niveau de l’interface de l’IDE, vous utiliserez principalement (de
 haut en bas) :
@@ -78,25 +76,35 @@ Si vous essayez d’exécuter le programme (en appuyant sur le bouton),
 vous remarquerez qu’une fenêtre s’ouvre, et se ferme juste après. Votre
 objectif sera de dessiner dans cette fenêtre !\
 
-Vous devrez programmer uniquement dans le fichier `my_code.py`, il sera
-automatiquement lu et exécuté par notre propre code.
 
 Premiers pas
 ============
 
 Pour l’instant, voyons ce qu’il est possible de faire avec quelques
 lignes de code. Pour bien comprendre ce qu’il se passe : recopiez dans
-votre fichier `my_code.py` ce qui est donné ici, changez les nombres, et
+votre fichier ce qui est donné ici, changez les nombres, et
 voyez quelle œuvre d’art vous êtes en train de créer !
 
 Quelques primitives pour débuter
 --------------------------------
 
-c c
+Une première forme:
 
-&\
-\
- &\
+        turtle.forward(100)
+        turtle.left(90)
+        turtle.forward(100)
+        turtle.left(90)
+        turtle.forward(100)
+        turtle.left(90)
+        turtle.forward(100)
+
+Une autre:
+
+        turtle.forward(100)
+        turtle.left(120)
+        turtle.forward(100)
+        turtle.left(120)
+        turtle.forward(100)
 
 Éviter d’écrire les mêmes instructions : les procédures
 -------------------------------------------------------
@@ -109,7 +117,7 @@ forme à plusieurs endroits.\
 En programmation, nous parlons aussi de *procédure*.\
 En réalité, vous aviez déjà rencontré cette bestiole : ce sont toutes
 les lignes que vous tapez et finissez par des parenthèses. En effet,
-`avancer()`, `tourner_droite()`, etc. sont toutes des procédures cachant
+`turtle.forward()`, `turtle.left()`, etc. sont toutes des procédures cachant
 un code compliqué que vous appelez plusieurs fois.\
 \
 Le schéma général de déclaration de procédure est le suivant :
@@ -132,13 +140,25 @@ suit :
 *Appeler* une procédure revient à exécuter le code qu’elle contient.\
 Voici quelques procédures que vous pouvez tester pour mieux comprendre
 :\
-\
+[htb!] ![image](img/square.jpg)
 
-c c
+        def carre():
+            turtle.forward(100)
+            turtle.left(90)
+            turtle.forward(100)
+            turtle.left(90)
+            turtle.forward(100)
+            turtle.left(90)
+            turtle.forward(100)
 
-&\
-\
- &\
+[htb!] ![image](img/triangle.png)
+
+        def triangle():
+            turtle.forward(100)
+            turtle.left(120)
+            turtle.forward(100)
+            turtle.left(120)
+            turtle.forward(100)
 
 Créez vos propre procédures !
 -----------------------------
@@ -160,7 +180,7 @@ Répéter plusieurs fois les mêmes opérations : les boucles
 =========================================================
 
 En général, on parviendra à dessiner une forme complexe avec un certain
-nombre de formes simples.[^4]\
+nombre de formes simples.\
 
 En fait, jusqu’à présent, vous arrivez déjà à dessiner une forme qui se
 répète : la ligne.\
@@ -168,17 +188,17 @@ répète : la ligne.\
 Si vous observez bien, pour dessiner un carré, vous exécutez quatre fois
 les mêmes instructions :
 
-    # on dessine un bord
-    avancer (100)
-    # on tourne de 90 deg : la direction du second bord
-    tourner_droite (90)
-    avancer (100)
-    tourner_droite (90)
-    avancer (100)
-    tourner_droite (90)
-    avancer (100)
-    tourner_droite (90)
-    # les quatre bords apparaissent
+        # on dessine un bord
+        turtle.forward(100)
+        # on tourne de 90 deg : la direction du second bord
+        turtle.right(90)
+        turtle.forward(100)
+        turtle.right(90)
+        turtle.forward(100)
+        turtle.right(90)
+        turtle.forward(100)
+        turtle.right(90)
+        # les quatre bords apparaissent
 
 Pour faire plus court, il serait intéressant de pouvoir dire à
 l’ordinateur :
@@ -192,9 +212,9 @@ appelle **boucle**.\
 
 Dans le cas du carré, on obtient en Python[^5]
 
-    for i in range (4) :  # faire 4 fois
-      avancer (100)       # avancer de 100 points
-      tourner_droite (90) # tourner de 90deg
+    for i in range (4):  # faire 4 fois
+      turtle.forward(100)       # avancer de 100 points
+      turtle.right(90) # tourner de 90deg
 
 Maintenant réécrivez toutes les formes que vous avez déjà programmées,
 mais en utilisant les boucles :
@@ -220,19 +240,19 @@ Quelques objectifs impossibles
 Les dessins suivants sont bien plus difficiles à réaliser que les autres
 ! Certains nécessitent même des notions bien plus complexes que celles
 vues dans ce Workshop : saut conditionnel, récursion, passage de
-paramètre aux procédures, etc.[^6]\
+paramètre aux procédures, etc.
 
 Nous mettons à votre disposition d’autres procédures pour permettre à
 votre créativité de mieux s’exprimer :
 
--   `lever_crayon()` : les prochains déplacement n’afficheront rien;
+-   `turtle.pen_up()` : les prochains déplacement n’afficheront rien;
 
--   `poser_crayon()` : a l’effet inverse du lever de crayon;
+-   `turtle.pend_down()` : a l’effet inverse du lever de crayon;
 
--   `changer_taille(taille)` : change la taille des prochains traits
+-   `turtle.pensize(taille)` : change la taille des prochains traits
     dessinés;
 
--   `changer_couleur((rouge, vert, bleu))` : change la couleur des
+-   `turtle.pencolor(rouge, vert, bleu)` : change la couleur des
     prochains traits dessinés. Notez que les couleurs sont composées de
     trois composantes : vert, rouge et bleu. Chacune peut avoir une
     valeur allant de 0 (absence de le composante) à 255. Par exemple, du
@@ -256,15 +276,6 @@ bloquez !\
     délimitent les corps de fonctions par rapport à l’indentation, ce
     qui rend le code *naturellement* lisible
 
-[^4]: En fait, ils est démontrable que tout polygone fermé peut être
-    décomposé en un nombre finit de triangles. De même, toute forme
-    bidimensionnelle fermée peut être décomposée en un nombre infini de
-    triangles (potentiellement dégénérés). Le cas le la forme vide est à
-    exclure.
-
 [^5]: Remarquez l’usage de la procédure *range(nombre)*. Elle génèrera
     une suite de nombre allant de 0 à *nombre* - 1.
 
-[^6]: Toutes ces notions font aussi partie de la base de la
-    programmation, si bien que vous les maitriserez dès votre première
-    semaine de cours à l’Épita.
