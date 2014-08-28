@@ -90,21 +90,25 @@ Quelques primitives pour débuter
 
 Une première forme:
 
-        turtle.forward(100)
-        turtle.left(90)
-        turtle.forward(100)
-        turtle.left(90)
-        turtle.forward(100)
-        turtle.left(90)
-        turtle.forward(100)
+```python
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(100)
+    turtle.left(90)
+    turtle.forward(100)
+```
 
 Une autre:
 
-        turtle.forward(100)
-        turtle.left(120)
-        turtle.forward(100)
-        turtle.left(120)
-        turtle.forward(100)
+```python
+    turtle.forward(100)
+    turtle.left(120)
+    turtle.forward(100)
+    turtle.left(120)
+    turtle.forward(100)
+```
 
 Éviter d’écrire les mêmes instructions : les procédures
 -------------------------------------------------------
@@ -114,7 +118,7 @@ Souvent, une forme géométrique est composée de plusieurs formes simples
 l’ordinateur la procédure à suivre pour dessiner une forme bien précise.
 Cette procédure pourra ensuite être mise en œuvre afin de dessiner la
 forme à plusieurs endroits.\
-En programmation, nous parlons aussi de *procédure*.\
+En programmation, nous parlons de *procédure* ou *fonction*.\
 En réalité, vous aviez déjà rencontré cette bestiole : ce sont toutes
 les lignes que vous tapez et finissez par des parenthèses. En effet,
 `turtle.forward()`, `turtle.left()`, etc. sont toutes des procédures cachant
@@ -122,10 +126,11 @@ un code compliqué que vous appelez plusieurs fois.\
 \
 Le schéma général de déclaration de procédure est le suivant :
 
-        def nom_de_ma_super_procedure() :   # on nomme la procedure
-            instruction 1                   # tabulation obligatoire
-            instruction 2
-        
+```python
+    def nom_de_ma_super_procedure() :   # on nomme la procedure
+        instruction 1                   # tabulation obligatoire
+        instruction 2
+```
 
 Prenez garde à la tabulation avant chaque instruction : cela permet au
 compilateur/interpréteur de savoir que les instructions appartiennent
@@ -134,31 +139,37 @@ bien à la fonction[^3].\
 Une fois définie, vous appelez votre procédure tout simplement comme
 suit :
 
-        nom_de_ma_super_procedure ()
-        
+```python
+    nom_de_ma_super_procedure()
+```
 
 *Appeler* une procédure revient à exécuter le code qu’elle contient.\
-Voici quelques procédures que vous pouvez tester pour mieux comprendre
-:\
-![image](img/square.jpg)
+Voici quelques procédures que vous pouvez tester pour mieux comprendre :
 
-        def carre():
-            turtle.forward(100)
-            turtle.left(90)
-            turtle.forward(100)
-            turtle.left(90)
-            turtle.forward(100)
-            turtle.left(90)
-            turtle.forward(100)
+![carre()](img/square.jpg)
 
-![image](img/triangle.png)
+```python
+    def carre():
+        turtle.forward(100)
+        turtle.left(90)
+        turtle.forward(100)
+        turtle.left(90)
+        turtle.forward(100)
+        turtle.left(90)
+        turtle.forward(100)
+```
 
-        def triangle():
-            turtle.forward(100)
-            turtle.left(120)
-            turtle.forward(100)
-            turtle.left(120)
-            turtle.forward(100)
+
+![triangle()](img/triangle.png)
+
+```python
+    def triangle():
+        turtle.forward(100)
+        turtle.left(120)
+        turtle.forward(100)
+        turtle.left(120)
+        turtle.forward(100)
+```
 
 Créez vos propre procédures !
 -----------------------------
@@ -182,39 +193,46 @@ Répéter plusieurs fois les mêmes opérations : les boucles
 En général, on parviendra à dessiner une forme complexe avec un certain
 nombre de formes simples.\
 
-En fait, jusqu’à présent, vous arrivez déjà à dessiner une forme qui se
-répète : la ligne.\
+En fait, jusqu’à présent, vous arrivez déjà à dessiner vos formes à partir d'une
+autre plus simple : la ligne.\
+
+\newpage{}
 
 Si vous observez bien, pour dessiner un carré, vous exécutez quatre fois
 les mêmes instructions :
 
-        # on dessine un bord
-        turtle.forward(100)
-        # on tourne de 90 deg : la direction du second bord
-        turtle.right(90)
-        turtle.forward(100)
-        turtle.right(90)
-        turtle.forward(100)
-        turtle.right(90)
-        turtle.forward(100)
-        turtle.right(90)
-        # les quatre bords apparaissent
+```python
+    # on dessine un bord
+    turtle.forward(100)
+    # on tourne de 90° : la direction du second bord
+    turtle.right(90)
+    # et on recommence
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    turtle.forward(100)
+    turtle.right(90)
+    # les quatre bords apparaissent
+```
 
 Pour faire plus court, il serait intéressant de pouvoir dire à
 l’ordinateur :
 
-    faire 4 fois :
-        avancer de 100 points
-        tourner de 90 deg
+        faire 4 fois :
+            avancer de 100 points
+            tourner de 90°
 
 Il s’avère que cela est possible en Python. C’est un concept que l’on
 appelle **boucle**.\
 
 Dans le cas du carré, on obtient en Python[^5]
 
-    for i in range (4):  # faire 4 fois
-      turtle.forward(100)       # avancer de 100 points
-      turtle.right(90) # tourner de 90deg
+```python
+    for i in range(4):     # faire 4 fois :
+        turtle.forward(100)     # avancer de 100 points
+        turtle.right(90)        # tourner de 90°
+```
 
 Maintenant réécrivez toutes les formes que vous avez déjà programmées,
 mais en utilisant les boucles :
@@ -228,39 +246,42 @@ mais en utilisant les boucles :
 Quelques objectifs simples
 ==========================
 
-Cette fois ci, vous n’êtes plus guidés ! Montrez que vous êtes créatifs
-en réussissant à dessiner les formes suivantes. N’hésitez pas à appeler
-à l’aide !\
+Cette fois ci, vous n’êtes plus guidés ! Montrez que vous êtes créatifs en
+réussissant à dessiner les formes suivantes avec le moins de ligne de code
+possible. N’hésitez pas à appeler à l’aide !
 
 ![image](img/approx_circle_hexagon.png) ![image](img/star.png)
 
 Quelques objectifs impossibles
 ==============================
 
-Les dessins suivants sont bien plus difficiles à réaliser que les autres
-! Certains nécessitent même des notions bien plus complexes que celles
-vues dans ce Workshop : saut conditionnel, récursion, passage de
-paramètre aux procédures, etc.
+Les dessins suivants sont bien plus difficiles à réaliser que les autres !
+Certains nécessitent même des notions bien plus complexes que celles vues dans
+ce TP : saut conditionnel, récursion, passage de paramètre aux procédures, etc.
 
 Nous mettons à votre disposition d’autres procédures pour permettre à
 votre créativité de mieux s’exprimer :
 
--   `turtle.pen_up()` : les prochains déplacement n’afficheront rien;
+-   `turtle.speed(vitesse)` : change la vitesse de tracé du dessin, pour aller
+     le plus vite possible, choisissez "0".
 
--   `turtle.pend_down()` : a l’effet inverse du lever de crayon;
+-   `turtle.penup()` : les prochains déplacement n’afficheront rien;
+
+-   `turtle.pendown()` : a l’effet inverse du lever de crayon;
 
 -   `turtle.pensize(taille)` : change la taille des prochains traits
     dessinés;
 
 -   `turtle.pencolor(rouge, vert, bleu)` : change la couleur des
-    prochains traits dessinés. Notez que les couleurs sont composées de
+    prochains traits dessinés. Notez que les couleurs ont
     trois composantes : vert, rouge et bleu. Chacune peut avoir une
-    valeur allant de 0 (absence de le composante) à 255. Par exemple, du
-    rouge pur correspond à la combinaisons {rouge = 255, vert = 0, bleu
-    = 0}.
+    valeur allant de 0 (absence de la composante) à 1. Par exemple, du
+    rouge pur correspond à la combinaisons\
+    {rouge = 1, vert = 0, bleu = 0} et le gris à\
+    {rouge = 0.5, vert = 0.5, = bleu = 0.5}.
 
 Essayez d’obtenir le bon résultat, et appelez un assistant dès que vous
-bloquez !\
+bloquez !
 
 ![image](img/sierpinski.png)\
 
@@ -270,12 +291,12 @@ bloquez !\
 
 [^2]: http://docs.python.org/2/library/turtle.html
 
-[^3]: Certains langages ont un approche différente : le C, C++, Java, et
+[^3]: Certains langages ont une approche différente : le C, C++, Java, et
     C\# par exemple utilisent des accolades pour délimiter le corps des
     fonctions. Les langages tels que Python ou encore le Haskell
     délimitent les corps de fonctions par rapport à l’indentation, ce
     qui rend le code *naturellement* lisible
 
 [^5]: Remarquez l’usage de la procédure *range(nombre)*. Elle génèrera
-    une suite de nombre allant de 0 à *nombre* - 1.
+    une suite de nombres allant de 0 à *nombre* - 1.
 
