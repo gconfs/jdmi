@@ -50,7 +50,7 @@ PyScripter se lance très simplement en double cliquant sur l’icône
 associée se trouvant quelque part sur votre bureau. Si tout se passe
 bien, vous devriez voir un écran similaire à celui-ci :\
 
-![image](img/capture)
+![image](img/capture.png)
 
 Vous l’aurez compris, l’IDE n’affiche que le strict minimum nécessaire
 pour ce Workshop. Notez que deux lignes de code sont déjà présentes :
@@ -140,7 +140,7 @@ suit :
 *Appeler* une procédure revient à exécuter le code qu’elle contient.\
 Voici quelques procédures que vous pouvez tester pour mieux comprendre
 :\
-[htb!] ![image](img/square.jpg)
+![image](img/square.jpg)
 
         def carre():
             turtle.forward(100)
@@ -151,7 +151,7 @@ Voici quelques procédures que vous pouvez tester pour mieux comprendre
             turtle.left(90)
             turtle.forward(100)
 
-[htb!] ![image](img/triangle.png)
+![image](img/triangle.png)
 
         def triangle():
             turtle.forward(100)
@@ -174,7 +174,7 @@ procédure pour dessiner :
     série de segments parcourant son bord). Vous pourrez utiliser les
     procédures `math.cos(angle)` et `math.sin(angle)`.\
 
-[htb!] ![image](img/approx_circle)\
+![image](img/approx_circle.png)
 
 Répéter plusieurs fois les mêmes opérations : les boucles
 =========================================================
@@ -232,7 +232,7 @@ Cette fois ci, vous n’êtes plus guidés ! Montrez que vous êtes créatifs
 en réussissant à dessiner les formes suivantes. N’hésitez pas à appeler
 à l’aide !\
 
-[htb!] ![image](img/approx_circle_hexagon) ![image](img/star)
+![image](img/approx_circle_hexagon.png) ![image](img/star.png)
 
 Quelques objectifs impossibles
 ==============================
@@ -262,9 +262,9 @@ votre créativité de mieux s’exprimer :
 Essayez d’obtenir le bon résultat, et appelez un assistant dès que vous
 bloquez !\
 
-[htb!] ![image](img/sierpinski.png)\
+![image](img/sierpinski.png)\
 
-[htb!] ![image](img/spiral_square.png)
+![image](img/spiral_square.png)
 
 [^1]: http://python.org/
 
