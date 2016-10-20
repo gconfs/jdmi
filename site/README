@@ -1,0 +1,8 @@
+Interesting files:
+  * index.html = the HTML page
+  * static/py/jdmi.py = the brython script
+
+Everything is static, just serve it.
+
+
+Author: Zeletochoy
