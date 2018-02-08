@@ -11,6 +11,7 @@
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
     <script src="/static/js/brython.js"></script>
+    <script src="/static/js/brython_stdlib.js"></script>
     <script src="/static/js/ace/ace.js"></script>
     <script type="text/python" src="/static/py/jdmi.py"></script>
   </head>
@@ -77,7 +78,7 @@ t.forward(100)</pre>
           </div>
         </div>
         <div class="col-xs-6">
-          <div class="panel panel-default">
+          <div class="panel panel-default" id="turtle-panel">
             <div class="panel-heading">
               <span class="panel-title">Turtle</span>
               <button type="button" class="btn btn-success btn-sm" style="float:right" onclick="run_turtle()">Run</button>

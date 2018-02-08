@@ -6,6 +6,7 @@ from browser import timer
 from browser import alert
 import json
 
+
 # Setup the ace editor
 ace = win.ace
 editor = ace.edit("editor")
@@ -16,19 +17,27 @@ editor.getSession().setUseSoftTabs(True)
 doc["editor"].height = 500
 editor.resize()
 
+
 # Decorator to make a function visible in javascript
 def exportjs(func):
     setattr(win, func.__name__, func)
     return func
 
+
 @exportjs
 def run_turtle():
     # Reset the canvas
     try:
-      del doc["mycanvas"]
+      del doc["turtle-canvas"]
     except:
       pass
+
+    # Initialize the turtle
     import turtle
+    canvas_size = doc["turtle-panel"].getBoundingClientRect().width
+    turtle.set_defaults(canvwidth=canvas_size, canvheight=canvas_size,
+                        turtle_canvas_wrapper=doc["container"],
+                        turtle_canvas_id="turtle-canvas")
     t = turtle.Turtle()
 
     # Get the user code from ace
@@ -60,12 +69,14 @@ def run_turtle():
     import sys
     del sys.modules["turtle"]
 
+
 @exportjs
 def change_binding(binding):
     doc["binding"].text = binding
     if binding == "default":
         binding = "keybinding"
     editor.setKeyboardHandler("ace/keyboard/" + binding)
+
 
 def update_saves():
     saves = json.loads(storage["saves"])
@@ -75,7 +86,7 @@ def update_saves():
         link = html.A(s, href='#', onclick="load_buffer('{}')".format(s))
         dropdown <= html.LI(link)
     # <li><a href="#" onclick="load_buffer('{}')">{}</a></li>
-        
+
 
 @exportjs
 def save_buffer():
@@ -89,9 +100,11 @@ def save_buffer():
     storage["saves"] = json.dumps(saves)
     update_saves()
 
+
 def autosave():
     text = editor.getValue()
     storage["autosave"] = text
+
 
 @exportjs
 def load_buffer(name=None):
@@ -101,6 +114,7 @@ def load_buffer(name=None):
     else:
         saves = json.loads(storage["saves"])
         editor.setValue(saves[name])
+
 
 # Load autosave if present
 try:
