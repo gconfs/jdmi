@@ -1,5 +1,5 @@
 %Atelier de programmation en python
-%Kévin "Chewie" Sztern et Christophe "Sagane" Vermorel
+%GConfs
 
 \newpage
 
