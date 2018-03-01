@@ -31,13 +31,14 @@
 %            Utilisation : enteteTPCS{<no>}{<date>}{<titre>}
 %
 \usepackage{fancyhdr}
-\newcommand{\enteteTPCS}[4]{
-\pagestyle{fancy} \lhead{{\textbf{\csharp} Version: #4}\\
-{\sc tp} $#1$ -- #2} \rhead{{\small Info-Sup}\\ {\sc Epita}}
+\newcommand{\enteteTPCS}[5]{
+\pagestyle{fancy} \lhead{{\textbf{\csharp} Version~: #1}\\
+{\sc tp} $#2$ -- #3} \rhead{{\small Info-Sup}\\ {\sc Epita}}
 \lfoot{\includegraphics[height=1.3cm]{img/logo_epita.png}}
 \rfoot{\includegraphics[height=1cm]{img/logo_gconfs.png}}
 \begin{center}
-{\Large {\bf #3}}
+{\Large {\bf #4}}\\
+{\small \emph{#5}}
 \end{center}
 \bigskip}
 

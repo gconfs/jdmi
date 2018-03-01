@@ -40,30 +40,30 @@
 \topmargin -0.5cm
 
 \begin{document}
-\enteteTPCS{0}{Septembre 2017}{TP C\#0: Nom Du TP}{1.0}
+\enteteTPCS{1.0}{Immersion}{2018}{Le python et la tortue}{Une fable de Jean-Michel Jéquonfe}
 
 % Consignes de rendu
 \section{introduction}
-L'objectif de ce Workshop est de vous montrer quelques bases de
+L'objectif de cet atelier est de vous montrer quelques bases de
 programmation dans un langage très simple pour débuter~: le Python.
 
 Vous êtes encadrés par plusieurs étudiants et enseignants de l'EPITA. N'hésitez
 pas à nous poser des questions !
 
-Le but de ce Workshop est de vous faire dessiner des formes géométriques
+Le but de cet atelier est de vous faire dessiner des formes géométriques
 à l'aide du langage de programmation
 \emph{Python}\footnote{\url{http://python.org/}} et de son module
 \emph{turtle}\footnote{\url{https://docs.python.org/3.6/library/turtle.html}},
 un ensemble d'outils destinés aux débutants souhaitant découvrir la
 programmation.  Vous trouverez en annexe des exemples de ce que vous serez
-capable de réaliser avec ce module et les connaissances acquises au cours de ce
-Workshop.
+capable de réaliser avec ce module et les connaissances acquises au cours de cet
+atelier.
 
 \section{L'environnement de développement}
 \subsection{Généralités}
 
 Dans un premier temps, regardons l'environnement qui sera utilisé pour réaliser
-ce Workshop. Un environnement de développement est généralement composé de trois
+cet atelier. Un environnement de développement est généralement composé de trois
 outils~:
 
 \begin{itemize}
@@ -80,40 +80,52 @@ Vous avez de la chance, il existe des logiciel qui combinent éditeur et
 compilateur / interpréteur. On les appelle IDE (Integrated Development
 Environnement - Environnement de développement intégré).
 
-Nous utiliserons un IDE dédié à la programmation en Python~: PyScripter
+\subsection{Votre environnement}
 
-\subsection{Votre IDE}
-
-PyScripter se lance très simplement en double cliquant sur l'icône
-associée se trouvant quelque part sur votre bureau. Si tout se passe
-bien, vous devriez voir un écran similaire à celui de la figure~
-\ref{fig:pyscripterstart}.
+Pour cet atelier, nous vous proposons un environnement de travail en ligne.
+Rendez-vous sur \url{https://tp-immersion.gconfs.fr}, vous devriez arriver un
+écran similaire à la figure \ref{fig:zeleinterfacestart}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{img/capture}
-    \caption{PyScripter après ouverture}
-    \label{fig:pyscripterstart}
+    \includegraphics[width=\textwidth]{img/zele-interface_start}
+    \caption{Environnement de travail après ouverture}
+    \label{fig:zeleinterfacestart}
 \end{figure}
 
-Vous l'aurez compris, l'IDE n'affiche que le strict minimum nécessaire
-pour ce Workshop. Notez que deux lignes de code sont déjà présentes~:
+Vous l'aurez compris, l'environnement n'affiche que le strict nécessaire pour
+cet atelier.
 
 \begin{itemize}
-    \item \lstinline{# Insérez votre code ici} est un commentaire, il sera ignoré par
-        l'interpréteur, comme toutes les lignes commençant par \lstinline{#}.
-    \item \lstinline{import turle} permet d'importer l'ensemble des fonctionnalités
-        présentes dqns la bubliothèque turtle. Au niveau de l'interface de
-        l'IDE, vous utiliserez principalement (de haut en bas)~;
-    \item le bouton d'exécution~: presser ce bouton exécutera aussi votre code~;
-    \item l'espace d'édition~;
-    \item une console (onglet \emph{Sortie} en bas d'écran)~: c'est ici que
-        s'afficheront les messages d'erreur si votre code n'est pas correct.
+    \item l'espace d'édition. Notez que deux lignes de code y sont déjà
+        présentes~:
+        \begin{itemize}
+            \item \lstinline{# t is the turtle} est un commentaire, il sera
+                ignoré par l'interpréteur, comme toutes les lignes commençant
+                par \lstinline{#}.  Les commentaires permettent d'aider les
+                humains qui lisent le code du programme (un collègue, un ami, ou
+                vous-même plusieurs jours après)~;
+            \item \lstinline{t.forward(100)}~: premier exemple de ligne de code
+                que vous allez utiliser pendant l'atelier, cette ligne fait
+                avancer la tortue de 100 unités de distance en ligne droite. La
+                tortue étant initialement positionné au milieu de l'écran et
+                orienté vers la droite, vous la verrez se déplacer vers la
+                droite en appuyant sur~:
+        \end{itemize}
+    \item le bouton d'exécution~: presser le bouton "Run" exécutera le programme
+        que vous avez écrit dans l'éditeur~;
+    \item une zone d'affichage d'erreur, que vous ne voyez pas encore. Celle-ci
+        apparaîtra dans un cadre en haut de l'éditeur lorsque votre programme
+        rencontrera un problème, n'hésitez pas à appeler un encadrant pour les
+        premières erreurs que vous contrerez~!
 \end{itemize}
 
-Si vous essayez d'exécuter le programme (en appuyant sur le bouton),
-vous remarquerez qu'une fenêtre s'ouvre, et se ferme juste après. Votre
-objectif sera de dessiner dans cette fenêtre~!
+Si vous essayez d'exécuter le programme (en appuyant sur le bouton "Run"),
+vous remarquerez qu'un segment horizontal se dessine dans la partie droite de la
+page, c'est votre tortue qui a avancé de 100 unités de distance vers la droite.
+Par la suite nous vous apprendron à faire tourner la tortue et à lui faire
+répéter des schéma, vous pourrez rapidement dessiner toutes les formes
+géométriques qui vous viennent à l'esprit.
 
 \newpage{}
 \section{Premiers pas}
