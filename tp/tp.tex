@@ -40,30 +40,30 @@
 \topmargin -0.5cm
 
 \begin{document}
-\enteteTPCS{0}{Septembre 2017}{TP C\#0: Nom Du TP}{1.0}
+\enteteTPCS{1.0}{Immersion}{2018}{Le python et la tortue}{Une fable de Jean-Michel Jéquonfe}
 
 % Consignes de rendu
 \section{introduction}
-L'objectif de ce Workshop est de vous montrer quelques bases de
+L'objectif de cet atelier est de vous montrer quelques bases de
 programmation dans un langage très simple pour débuter~: le Python.
 
 Vous êtes encadrés par plusieurs étudiants et enseignants de l'EPITA. N'hésitez
 pas à nous poser des questions !
 
-Le but de ce Workshop est de vous faire dessiner des formes géométriques
+Le but de cet atelier est de vous faire dessiner des formes géométriques
 à l'aide du langage de programmation
 \emph{Python}\footnote{\url{http://python.org/}} et de son module
 \emph{turtle}\footnote{\url{https://docs.python.org/3.6/library/turtle.html}},
 un ensemble d'outils destinés aux débutants souhaitant découvrir la
 programmation.  Vous trouverez en annexe des exemples de ce que vous serez
-capable de réaliser avec ce module et les connaissances acquises au cours de ce
-Workshop.
+capable de réaliser avec ce module et les connaissances acquises au cours de cet
+atelier.
 
 \section{L'environnement de développement}
 \subsection{Généralités}
 
 Dans un premier temps, regardons l'environnement qui sera utilisé pour réaliser
-ce Workshop. Un environnement de développement est généralement composé de trois
+cet atelier. Un environnement de développement est généralement composé de trois
 outils~:
 
 \begin{itemize}
@@ -80,42 +80,53 @@ Vous avez de la chance, il existe des logiciel qui combinent éditeur et
 compilateur / interpréteur. On les appelle IDE (Integrated Development
 Environnement - Environnement de développement intégré).
 
-Nous utiliserons un IDE dédié à la programmation en Python~: PyScripter
+\subsection{Votre environnement}
 
-\subsection{Votre IDE}
-
-PyScripter se lance très simplement en double cliquant sur l'icône
-associée se trouvant quelque part sur votre bureau. Si tout se passe
-bien, vous devriez voir un écran similaire à celui de la figure~
-\ref{fig:pyscripterstart}.
+Pour cet atelier, nous vous proposons un environnement de travail en ligne.
+Rendez-vous sur \url{https://tp-immersion.gconfs.fr}, vous devriez arriver un
+écran similaire à la figure \ref{fig:zeleinterfacestart}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{img/capture}
-    \caption{PyScripter après ouverture}
-    \label{fig:pyscripterstart}
+    \includegraphics[width=\textwidth]{img/zele-interface_start}
+    \caption{Environnement de travail après ouverture}
+    \label{fig:zeleinterfacestart}
 \end{figure}
 
-Vous l'aurez compris, l'IDE n'affiche que le strict minimum nécessaire
-pour ce Workshop. Notez que deux lignes de code sont déjà présentes~:
+Vous l'aurez compris, l'environnement n'affiche que le strict nécessaire pour
+cet atelier.
 
 \begin{itemize}
-    \item \lstinline{# Insérez votre code ici} est un commentaire, il sera ignoré par
-        l'interpréteur, comme toutes les lignes commençant par \lstinline{#}.
-    \item \lstinline{import turle} permet d'importer l'ensemble des fonctionnalités
-        présentes dqns la bubliothèque turtle. Au niveau de l'interface de
-        l'IDE, vous utiliserez principalement (de haut en bas)~;
-    \item le bouton d'exécution~: presser ce bouton exécutera aussi votre code~;
-    \item l'espace d'édition~;
-    \item une console (onglet \emph{Sortie} en bas d'écran)~: c'est ici que
-        s'afficheront les messages d'erreur si votre code n'est pas correct.
+    \item l'espace d'édition. Notez que deux lignes de code y sont déjà
+        présentes~:
+        \begin{itemize}
+            \item \lstinline{# t is the turtle} est un commentaire, il sera
+                ignoré par l'interpréteur, comme toutes les lignes commençant
+                par \lstinline{#}.  Les commentaires permettent d'aider les
+                humains qui lisent le code du programme (un collègue, un ami, ou
+                vous-même plusieurs jours après)~;
+            \item \lstinline{t.forward(100)}~: premier exemple de ligne de code
+                que vous allez utiliser pendant l'atelier, cette ligne fait
+                avancer la tortue de 100 unités de distance en ligne droite. La
+                tortue étant initialement positionné au milieu de l'écran et
+                orienté vers la droite, vous la verrez se déplacer vers la
+                droite en appuyant sur~:
+        \end{itemize}
+    \item le bouton d'exécution~: presser le bouton "Run" exécutera le programme
+        que vous avez écrit dans l'éditeur~;
+    \item une zone d'affichage d'erreur, que vous ne voyez pas encore. Celle-ci
+        apparaîtra dans un cadre en haut de l'éditeur lorsque votre programme
+        rencontrera un problème, n'hésitez pas à appeler un encadrant pour les
+        premières erreurs que vous contrerez~!
 \end{itemize}
 
-Si vous essayez d'exécuter le programme (en appuyant sur le bouton),
-vous remarquerez qu'une fenêtre s'ouvre, et se ferme juste après. Votre
-objectif sera de dessiner dans cette fenêtre~!
+Si vous essayez d'exécuter le programme (en appuyant sur le bouton "Run"),
+vous remarquerez qu'un segment horizontal se dessine dans la partie droite de la
+page, c'est votre tortue qui a avancé de 100 unités de distance vers la droite.
+Par la suite nous vous apprendron à faire tourner la tortue et à lui faire
+répéter des schéma, vous pourrez rapidement dessiner toutes les formes
+géométriques qui vous viennent à l'esprit.
 
-\newpage{}
 \section{Premiers pas}
 
 Pour l'instant, voyons ce qu'il est possible de faire avec quelques lignes de
@@ -127,23 +138,23 @@ train de créer~!
 Une première forme~:
 
 \begin{lstlisting}
-turtle.forward(100)
-turtle.left(90)
-turtle.forward(100)
-turtle.left(90)
-turtle.forward(100)
-turtle.left(90)
-turtle.forward(100)
+t.forward(100)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(100)
+t.left(90)
+t.forward(100)
 \end{lstlisting}
 
 Une autre~:
 
 \begin{lstlisting}
-turtle.forward(100)
-turtle.left(120)
-turtle.forward(100)
-turtle.left(120)
-turtle.forward(100)
+t.forward(100)
+t.left(120)
+t.forward(100)
+t.left(120)
+t.forward(100)
 \end{lstlisting}
 
 \subsection{Éviter d'écrire les mêmes instructions~: les procédures}
@@ -154,7 +165,7 @@ ces formes simples. Cette procédure pourra ensuite être réutilisée plusieurs
 fois afin de créer la forme plus complexe. En programmation, nous parlons de
 \emph{procédure} ou \emph{fonction}. En réalité, vous aviez déjà rencontré cette
 bestiole~: ce sont toutes les lignes que vous tapez et finissez par des
-parenthèses. En effet, \lstinline{turtle.forward()}, \lstinline{turtle.left()},
+parenthèses. En effet, \lstinline{t.forward()}, \lstinline{t.left()},
 etc. sont toutes des procédures cachant un code compliqué que vous appelez
 plusieurs fois.
 
@@ -194,13 +205,13 @@ Voici quelques procédures que vous pouvez tester pour mieux comprendre :
 
 \begin{lstlisting}[float]
 def carre():  # voir la figure %*\ref{fig:square}*)
-    turtle.forward(100)
-    turtle.left(90)
-    turtle.forward(100)
-    turtle.left(90)
-    turtle.forward(100)
-    turtle.left(90)
-    turtle.forward(100)
+    t.forward(100)
+    t.left(90)
+    t.forward(100)
+    t.left(90)
+    t.forward(100)
+    t.left(90)
+    t.forward(100)
 \end{lstlisting}
 \newpage
 
@@ -213,11 +224,11 @@ def carre():  # voir la figure %*\ref{fig:square}*)
 
 \begin{lstlisting}[float]
 def triangle():  # voir la figure %*\ref{fig:triangle}*)
-    turtle.forward(100)
-    turtle.left(120)
-    turtle.forward(100)
-    turtle.left(120)
-    turtle.forward(100)
+    t.forward(100)
+    t.left(120)
+    t.forward(100)
+    t.left(120)
+    t.forward(100)
 \end{lstlisting}
 
 \subsection{Créez vos propre procédures~!}
@@ -229,16 +240,10 @@ procédure pour dessiner~:
     \item une étoile~;
     \item un losange~;
     \item l'approximation d'un cercle (un cercle peut être approximé par une
-        série de segments parcourant son bord). Vous pourrez utiliser les
-        procédures \lstinline{math.cos(angle)} et \lstinline{math.sin(angle)}.
+        série de segments parcourant son bord). Vous pourrez utiliser (mais n'y
+        êtes pas forcés) les procédures \lstinline{math.cos(angle)} et
+        \lstinline{math.sin(angle)}.
 \end{itemize}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=0.8\textwidth]{img/approx_circle}
-    \caption{Exemple d'approximation de cercle}
-    \label{fig:circle}
-\end{figure}
 
 \section{Répéter plusieurs fois les mêmes opérations~: les boucles}
 
@@ -253,16 +258,16 @@ instructions~:
 
 \begin{lstlisting}
 # on dessine un bord
-turtle.forward(100)
+t.forward(100)
 # on tourne de 90° : la direction du second bord
-turtle.right(90)
+t.right(90)
 # et on recommence
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
-turtle.forward(100)
-turtle.right(90)
+t.forward(100)
+t.right(90)
+t.forward(100)
+t.right(90)
+t.forward(100)
+t.right(90)
 # les quatre bords apparaissent
 \end{lstlisting}
 
@@ -281,9 +286,9 @@ l'usage de la procédure \lstinline{range(nombre)}. Elle génèrera une suite de
 nombres allant de \lstinline{0} à \lstinline{nombre - 1.}}~:
 
 \begin{lstlisting}
-for i in range(4):     # faire 4 fois :
-    turtle.forward(100)     # avancer de 100 points
-    turtle.right(90)        # tourner de 90°
+for i in range(4):  # faire 4 fois :
+    t.forward(100)      # avancer de 100 points
+    t.right(90)         # tourner de 90°
 \end{lstlisting}
 
 Maintenant réécrivez toutes les formes que vous avez déjà programmées, mais en
@@ -292,8 +297,16 @@ utilisant les boucles~:
 \begin{itemize}
 \item le triangle~: en 3 lignes de code~;
 \item le losange~: en 3 ligne de codes~;
-\item l'approximation de cercle~: en 3 ligne de codes.
+\item l'approximation de cercle~: en 3 ligne de codes (comme dans la
+    figure~\ref{fig:circle}).
 \end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/approx_circle}
+    \caption{Exemple d'approximation de cercle}
+    \label{fig:circle}
+\end{figure}
 
 \section{Quelques objectifs simples}
 Cette fois ci, vous n'êtes plus guidés~! Montrez que vous êtes créatifs en
@@ -302,7 +315,7 @@ possible. N'hésitez pas à appeler à l'aide~!
 
 \begin{figure}[H]
     \centering
-    \includegraphics[height=0.4\textwidth]{img/approx_circle_hexagon}
+    \includegraphics[height=0.4\textwidth]{img/hexagon}
     \includegraphics[height=0.4\textwidth]{img/star}
     \caption{Autres exemples de forme géométriques}
     \label{fig:ending_examples}
@@ -318,13 +331,13 @@ Nous mettons à votre disposition d'autres procédures pour permettre à
 votre créativité de mieux s'exprimer~:
 
 \begin{itemize}
-    \item \lstinline{turtle.speed(vitesse)}~: change la vitesse de tracé du dessin, pour
+    \item \lstinline{t.speed(vitesse)}~: change la vitesse de tracé du dessin, pour
         aller le plus vite possible, choisissez \lstinline{0}.
-    \item \lstinline{turtle.penup()}~: les prochains déplacement n'afficheront rien~;
-    \item \lstinline{turtle.pendown()}~: a l'effet inverse du lever de crayon~;
-    \item \lstinline{turtle.pensize(taille)}~: change la taille des prochains traits
+    \item \lstinline{t.penup()}~: les prochains déplacement n'afficheront rien~;
+    \item \lstinline{t.pendown()}~: a l'effet inverse du lever de crayon~;
+    \item \lstinline{t.pensize(taille)}~: change la taille des prochains traits
         dessinés~;
-    \item \lstinline{turtle.pencolor(rouge, vert, bleu)}~: change la couleur des
+    \item \lstinline{t.pencolor(rouge, vert, bleu)}~: change la couleur des
         prochains traits dessinés. Notez que les couleurs ont trois
         composantes~: vert, rouge et bleu. Chacune peut avoir une valeur allant
         de 0 (absence de la composante) à 1. Par exemple, du rouge pur
