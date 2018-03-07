@@ -40,10 +40,10 @@
 \topmargin -0.5cm
 
 \begin{document}
-\enteteTPCS{1.0}{Immersion}{2018}{Le python et la tortue}{Une fable de Jean-Michel Jéquonfe}
+\enteteTPCS{1.0}{Immersion}{2018}{Le Python et la Tortue}{Une fable de Jean-Michel Jéquonfe}
 
 % Consignes de rendu
-\section{introduction}
+\section{Introduction}
 L'objectif de cet atelier est de vous montrer quelques bases de
 programmation dans un langage très simple pour débuter~: le Python.
 
@@ -89,8 +89,7 @@ Rendez-vous sur \url{https://tp-immersion.gconfs.fr}, vous devriez arriver un
 \begin{figure}
     \centering
     \includegraphics[width=\textwidth]{img/zele-interface_start}
-    \caption{Environnement de travail après ouverture}
-    \label{fig:zeleinterfacestart}
+    \caption{Environnement de travail après ouverture\label{fig:zeleinterfacestart}}
 \end{figure}
 
 Vous l'aurez compris, l'environnement n'affiche que le strict nécessaire pour
@@ -117,13 +116,13 @@ cet atelier.
     \item une zone d'affichage d'erreur, que vous ne voyez pas encore. Celle-ci
         apparaîtra dans un cadre en haut de l'éditeur lorsque votre programme
         rencontrera un problème, n'hésitez pas à appeler un encadrant pour les
-        premières erreurs que vous contrerez~!
+        premières erreurs que vous rencontrerez~!
 \end{itemize}
 
 Si vous essayez d'exécuter le programme (en appuyant sur le bouton "Run"),
 vous remarquerez qu'un segment horizontal se dessine dans la partie droite de la
 page, c'est votre tortue qui a avancé de 100 unités de distance vers la droite.
-Par la suite nous vous apprendron à faire tourner la tortue et à lui faire
+Par la suite nous vous apprendrons à faire tourner la tortue et à lui faire
 répéter des schéma, vous pourrez rapidement dessiner toutes les formes
 géométriques qui vous viennent à l'esprit.
 
@@ -160,9 +159,9 @@ t.forward(100)
 \subsection{Éviter d'écrire les mêmes instructions~: les procédures}
 
 Souvent, une forme géométrique est composée de plusieurs formes simples. Nous
-pouvoins par exemple indiquer à l'ordinateur la procédure à suivre pour dessiner
+pouvons par exemple indiquer à l'ordinateur la procédure à suivre pour dessiner
 ces formes simples. Cette procédure pourra ensuite être réutilisée plusieurs
-fois afin de créer la forme plus complexe. En programmation, nous parlons de
+fois afin de créer une forme plus complexe. En programmation, nous parlons de
 \emph{procédure} ou \emph{fonction}. En réalité, vous aviez déjà rencontré cette
 bestiole~: ce sont toutes les lignes que vous tapez et finissez par des
 parenthèses. En effet, \lstinline{t.forward()}, \lstinline{t.left()},
@@ -231,9 +230,9 @@ def triangle():  # voir la figure %*\ref{fig:triangle}*)
     t.forward(100)
 \end{lstlisting}
 
-\subsection{Créez vos propre procédures~!}
+\subsection{Créez vos propres procédures~!}
 
-Il est maintenant temps de créer vos propres procédure. Essayez d'écrire des
+Il est maintenant temps de créer vos propres procédures. Essayez d'écrire des
 procédure pour dessiner~:
 
 \begin{itemize}
@@ -242,7 +241,10 @@ procédure pour dessiner~:
     \item l'approximation d'un cercle (un cercle peut être approximé par une
         série de segments parcourant son bord). Vous pourrez utiliser (mais n'y
         êtes pas forcés) les procédures \lstinline{math.cos(angle)} et
-        \lstinline{math.sin(angle)}.
+        \lstinline{math.sin(angle)}, avec \lstinline{angle} en radians. 
+        Vous pouvez utiliser \newline{}
+        \lstinline{math.radians(angle)} pour convertir \lstinline{angle} de degrées en radians,
+        et \lstinline{math.degrees(angle)} pour convertir \lstinline{angle} de radians en degrées.
 \end{itemize}
 
 \section{Répéter plusieurs fois les mêmes opérations~: les boucles}
@@ -296,8 +298,8 @@ utilisant les boucles~:
 
 \begin{itemize}
 \item le triangle~: en 3 lignes de code~;
-\item le losange~: en 3 ligne de codes~;
-\item l'approximation de cercle~: en 3 ligne de codes (comme dans la
+\item le losange~: en 3 lignes de code~;
+\item l'approximation de cercle~: en 3 lignes de code (comme dans la
     figure~\ref{fig:circle}).
 \end{itemize}
 
@@ -310,14 +312,14 @@ utilisant les boucles~:
 
 \section{Quelques objectifs simples}
 Cette fois ci, vous n'êtes plus guidés~! Montrez que vous êtes créatifs en
-réussissant à dessiner les formes suivantes avec le moins de ligne de code
+réussissant à dessiner les formes suivantes avec le moins de lignes de code
 possible. N'hésitez pas à appeler à l'aide~!
 
 \begin{figure}[H]
     \centering
     \includegraphics[height=0.4\textwidth]{img/hexagon}
     \includegraphics[height=0.4\textwidth]{img/star}
-    \caption{Autres exemples de forme géométriques}
+    \caption{Autres exemples de formes géométriques}
     \label{fig:ending_examples}
 \end{figure}
 
@@ -325,15 +327,15 @@ possible. N'hésitez pas à appeler à l'aide~!
 
 Les dessins suivants sont bien plus difficiles à réaliser que les autres~!
 Certains nécessitent même des notions bien plus complexes que celles vues dans
-ce TP~: saut conditionnel, récursion, passage de paramètre aux procédures, etc.
+ce TP~: saut conditionnel, récursion, passage de paramètre(s) aux procédures, etc.
 
 Nous mettons à votre disposition d'autres procédures pour permettre à
 votre créativité de mieux s'exprimer~:
 
 \begin{itemize}
-    \item \lstinline{t.speed(vitesse)}~: change la vitesse de tracé du dessin, pour
+    \item \lstinline{t.speed(vitesse)}~: change la vitesse de tracé du dessin. Pour
         aller le plus vite possible, choisissez \lstinline{0}.
-    \item \lstinline{t.penup()}~: les prochains déplacement n'afficheront rien~;
+    \item \lstinline{t.penup()}~: les prochains déplacements n'afficheront rien~;
     \item \lstinline{t.pendown()}~: a l'effet inverse du lever de crayon~;
     \item \lstinline{t.pensize(taille)}~: change la taille des prochains traits
         dessinés~;
